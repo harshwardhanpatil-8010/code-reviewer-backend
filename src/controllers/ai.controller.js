@@ -1,4 +1,4 @@
-const generateContent = require("./services/ai.service");
+const generateContent = require("../services/ai.services");
 
 module.exports.getReview = async (req,res) => {
     const code = req.body.code;
