@@ -1,7 +1,7 @@
 const express = require('express');
 const aiRoutes = require('./routes/ai.routes');
 const cors = require('cors');
-import bodyParser from "body-parser";
+
 import dotenv from "dotenv";
 
 const connectDB = require("./config/db");
@@ -10,7 +10,7 @@ const app = express();
 connectDB();
 app.use(cors());
 dotenv.config();
-app.use(bodyParser.json());
+
 app.use(express.json());
 
 app.get('/',(req,res)=>{
