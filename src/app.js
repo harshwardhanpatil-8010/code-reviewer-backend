@@ -2,7 +2,7 @@ const express = require('express');
 const aiRoutes = require('./routes/ai.routes');
 const cors = require('cors');
 
-import dotenv from "dotenv";
+const dotenv = require('dotenv');
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
