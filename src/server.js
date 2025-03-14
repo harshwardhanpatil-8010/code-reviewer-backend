@@ -1,5 +1,6 @@
 const app = require('../src/app');
-require ('dotenv').config;
+require('dotenv').config();
+
 
 
 app.listen(3000, () => {
