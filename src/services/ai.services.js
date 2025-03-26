@@ -42,51 +42,43 @@ Security Best Practices
 Final Fully Optimized Code
 
 ✅ **Response Format:**
-1️⃣ Summary (Quick & Engaging)
-Highlight what’s good and what needs improvement in 1-2 sentences.
+1️⃣ Summary (Quick & Engaging)\n\n
+Highlight what’s good and what needs improvement in 1-2 sentences.\n\n
 
-2️⃣ Key Issues & Fixes (Concise & Actionable)
-🔴 Issue: Describe the problem.
+2️⃣ Key Issues & Fixes (Concise & Actionable)\n\n
+🔴 Issue: Describe the problem.\n\n
+🟢 Fix: Provide the correction in simple terms.\n\n
+🔹 Edge Cases: Mention any missing edge case handling.\n\n
 
-🟢 Fix: Provide the correction in simple terms.
+3️⃣ Fully Corrected Code (Optimized & Bug-Free)\n\n
+Provide the fully optimized, production-ready version at the end.\n\n
 
-🔹 Edge Cases: Mention any missing edge case handling.
+4️⃣ Final Check\n\n
+📢 "Want an advanced review covering performance, security, and best practices? Type 'Yes' for an in-depth analysis."\n\n
 
-3️⃣ Fully Corrected Code (Optimized & Bug-Free)
-Provide the fully optimized, production-ready version at the end.
+🔹 Advanced Review Format (If User Says "Yes")\n\n
+1️⃣ Code Quality & Maintainability\n\n
+Identify redundancies, unnecessary complexity, and structuring issues.\n\n
+Recommend modular, reusable functions for better organization.\n\n
 
-4️⃣ Final Check
-📢 "Want an advanced review covering performance, security, and best practices? Type 'Yes' for an in-depth analysis."
+2️⃣ Performance & Optimization\n\n
+Optimize for speed, memory efficiency, and clean execution.\n\n
+Suggest alternative data structures or algorithms if necessary.\n\n
 
-🔹 Advanced Review Format (If User Says "Yes")
-1️⃣ Code Quality & Maintainability
-Identify redundancies, unnecessary complexity, and structuring issues.
+3️⃣ Edge Case Handling\n\n
+Ensure the code accounts for edge cases (e.g., null values, incorrect input).\n\n
+Add safety checks where necessary.\n\n
 
-Recommend modular, reusable functions for better organization.
+4️⃣ Security Best Practices\n\n
+Identify vulnerabilities, such as input validation risks, SQL injection, buffer overflows, and access control flaws.\n\n
+Provide secure coding recommendations based on the language.\n\n
 
-2️⃣ Performance & Optimization
-Optimize for speed, memory efficiency, and clean execution.
+5️⃣ Final Optimized & Secure Code\n\n
+Present the most efficient, secure, and maintainable version of the code.\n\n
 
-Suggest alternative data structures or algorithms if necessary.
-
-3️⃣ Edge Case Handling
-Ensure the code accounts for edge cases (e.g., null values, incorrect input).
-
-Add safety checks where necessary.
-
-4️⃣ Security Best Practices
-Identify vulnerabilities, such as input validation risks, SQL injection, buffer overflows, and access control flaws.
-
-Provide secure coding recommendations based on the language.
-
-5️⃣ Final Optimized & Secure Code
-Present the most efficient, secure, and maintainable version of the code.
-
-add a motivating quote for learners at the end in bold
-
-⚠️ **Style:**
-- Use bullet points or numbered lists.
-- Keep it concise and actionable.`
+**💡 Motivating Quote:**  
+"Every expert was once a beginner. Keep coding and learning!"  
+`
 });
 
 // Function to call Gemini API
@@ -143,51 +135,23 @@ Security Best Practices
 Final Fully Optimized Code
 
 ✅ **Response Format:**
-1️⃣ Summary (Quick & Engaging)
-Highlight what’s good and what needs improvement in 1-2 sentences.
+1️⃣ Summary (Quick & Engaging)\n\n
+Highlight what’s good and what needs improvement in 1-2 sentences.\n\n
 
-2️⃣ Key Issues & Fixes (Concise & Actionable)
-🔴 Issue: Describe the problem.
+2️⃣ Key Issues & Fixes (Concise & Actionable)\n\n
+🔴 Issue: Describe the problem.\n\n
+🟢 Fix: Provide the correction in simple terms.\n\n
+🔹 Edge Cases: Mention any missing edge case handling.\n\n
 
-🟢 Fix: Provide the correction in simple terms.
+3️⃣ Fully Corrected Code (Optimized & Bug-Free)\n\n
+Provide the fully optimized, production-ready version at the end.\n\n
 
-🔹 Edge Cases: Mention any missing edge case handling.
+4️⃣ Final Check\n\n
+📢 "Want an advanced review covering performance, security, and best practices? Type 'Yes' for an in-depth analysis."\n\n
 
-3️⃣ Fully Corrected Code (Optimized & Bug-Free)
-Provide the fully optimized, production-ready version at the end.
-
-4️⃣ Final Check
-📢 "Want an advanced review covering performance, security, and best practices? Type 'Yes' for an in-depth analysis."
-
-🔹 Advanced Review Format (If User Says "Yes")
-1️⃣ Code Quality & Maintainability
-Identify redundancies, unnecessary complexity, and structuring issues.
-
-Recommend modular, reusable functions for better organization.
-
-2️⃣ Performance & Optimization
-Optimize for speed, memory efficiency, and clean execution.
-
-Suggest alternative data structures or algorithms if necessary.
-
-3️⃣ Edge Case Handling
-Ensure the code accounts for edge cases (e.g., null values, incorrect input).
-
-Add safety checks where necessary.
-
-4️⃣ Security Best Practices
-Identify vulnerabilities, such as input validation risks, SQL injection, buffer overflows, and access control flaws.
-
-Provide secure coding recommendations based on the language.
-
-5️⃣ Final Optimized & Secure Code
-Present the most efficient, secure, and maintainable version of the code.
-
-add a motivating quote for learners at the end in bold
-
-⚠️ **Style:**
-- Use bullet points or numbered lists.
-- Keep it concise and actionable.`
+**💡 Motivating Quote:**  
+"Every expert was once a beginner. Keep coding and learning!"  
+`
                     },
                     { role: "user", content: `Review this code: ${code}` }
                 ]
@@ -216,9 +180,10 @@ function combineResponses(gemini, openAI) {
     let allResponses = [gemini, openAI].filter((res) => res.trim() !== "");
     if (allResponses.length === 0) return "No valid responses received from AI models.";
 
+    // Add extra line breaks for clear separation
     return allResponses
         .join("\n\n")
-        .replace(/\n\s*\n/g, "\n")
+        .replace(/\n\s*\n/g, "\n\n")
         .trim();
 }
 
