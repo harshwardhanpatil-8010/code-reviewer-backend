@@ -46,9 +46,9 @@ Final Fully Optimized Code
 Highlight what’s good and what needs improvement in 1-2 sentences.\n\n
 
 2️⃣ Key Issues & Fixes (Concise & Actionable)\n\n
-🔴 Issue: Describe the problem.\n\n
-🟢 Fix: Provide the correction in simple terms.\n\n
-🔹 Edge Cases: Mention any missing edge case handling.\n\n
+\n\n🔴 Issue: Describe the problem.\n\n
+\n\n🟢 Fix: Provide the correction in simple terms.\n\n
+\n\n🔹 Edge Cases: Mention any missing edge case handling.\n\n
 
 3️⃣ Fully Corrected Code (Optimized & Bug-Free)\n\n
 Provide the fully optimized, production-ready version at the end.\n\n
@@ -139,9 +139,9 @@ Final Fully Optimized Code
 Highlight what’s good and what needs improvement in 1-2 sentences.\n\n
 
 2️⃣ Key Issues & Fixes (Concise & Actionable)\n\n
-🔴 Issue: Describe the problem.\n\n
-🟢 Fix: Provide the correction in simple terms.\n\n
-🔹 Edge Cases: Mention any missing edge case handling.\n\n
+\n\n🔴 Issue: Describe the problem.\n\n
+\n\n🟢 Fix: Provide the correction in simple terms.\n\n
+\n\n🔹 Edge Cases: Mention any missing edge case handling.\n\n
 
 3️⃣ Fully Corrected Code (Optimized & Bug-Free)\n\n
 Provide the fully optimized, production-ready version at the end.\n\n
