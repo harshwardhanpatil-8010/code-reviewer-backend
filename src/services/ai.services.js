@@ -63,7 +63,7 @@ return "";
 async function callOpenAI(code) {
 try {
 const response = await axios.post("https://api.openai.com/v1/chat/completions", {
-model: "gpt-3.5",
+model: "gpt-3.5-turbo",
 messages: [
 { role: "system", content: `"You are an AI-powered code reviewer designed to assist new developers in understanding code quality, security, performance, and maintainability. Your goal is to provide clear, actionable feedback that is easy to understand and helps developers learn effectively.
 
