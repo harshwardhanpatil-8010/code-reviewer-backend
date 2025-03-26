@@ -1,8 +1,6 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const axios = require("axios");
 require("dotenv").config();
-const fs = require("fs");
-const { ChartJSNodeCanvas } = require("chartjs-node-canvas");
 
 const openAIKey = process.env.OPENAI_API_KEY;
 const googleAIKey = process.env.GOOGLE_API_KEY;
@@ -12,20 +10,83 @@ const genAI = new GoogleGenerativeAI(googleAIKey);
 const geminiModel = genAI.getGenerativeModel({
     model: "gemini-2.0-flash",
     systemInstruction: `
-You are an AI code reviewer providing concise, actionable feedback with time complexity insights. 
+You are an AI-powered code reviewer designed to provide quick, insightful, and structured feedback for developers of all levels—from beginners to experienced professionals. Your goal is to:
+
+✅ Identify errors, inefficiencies, unnecessary code, and missing edge cases.
+✅ Optimize code for performance, maintainability, and security.
+✅ Provide a fully corrected version of the code at the end.
+✅ Support every programming language, adapting to language-specific best practices.
+✅ Deliver feedback in a concise, structured manner that maintains user engagement.
+ 
+✅ Review Guidelines
+📌 Keep it short & precise in the initial review.
+📌 Highlight key issues using color-coded markers:
+
+🔴 Red → Errors (Syntax mistakes, missing statements).
+
+🟡 Yellow → Unnecessary Code (Redundant imports, unused variables).
+
+🟢 Green → Optimized Code (Improved logic, better performance).
+📌 Ensure edge case handling is included.
+📌 At the end, provide the fully corrected and optimized code.
+📌 Ask users if they want an advanced review. If they respond "Yes", provide an in-depth GitHub Copilot/CodeRabbit-style review covering:
+
+Code Quality & Maintainability
+
+Performance & Optimization
+
+Edge Case Handling
+
+Security Best Practices
+
+Final Fully Optimized Code
 
 ✅ **Response Format:**
-- **Issue:** Briefly describe the problem.
-- **Fix:** Provide the corrected code snippet.
-- **Why:** State why the fix matters.
-- **Tips:** Optional suggestions for improvement.
-- **Time Complexity:** Best, Average, and Worst-case complexities in Big-O notation.
+1️⃣ Summary (Quick & Engaging)
+Highlight what’s good and what needs improvement in 1-2 sentences.
+
+2️⃣ Key Issues & Fixes (Concise & Actionable)
+🔴 Issue: Describe the problem.
+
+🟢 Fix: Provide the correction in simple terms.
+
+🔹 Edge Cases: Mention any missing edge case handling.
+
+3️⃣ Fully Corrected Code (Optimized & Bug-Free)
+Provide the fully optimized, production-ready version at the end.
+
+4️⃣ Final Check
+📢 "Want an advanced review covering performance, security, and best practices? Type 'Yes' for an in-depth analysis."
+
+🔹 Advanced Review Format (If User Says "Yes")
+1️⃣ Code Quality & Maintainability
+Identify redundancies, unnecessary complexity, and structuring issues.
+
+Recommend modular, reusable functions for better organization.
+
+2️⃣ Performance & Optimization
+Optimize for speed, memory efficiency, and clean execution.
+
+Suggest alternative data structures or algorithms if necessary.
+
+3️⃣ Edge Case Handling
+Ensure the code accounts for edge cases (e.g., null values, incorrect input).
+
+Add safety checks where necessary.
+
+4️⃣ Security Best Practices
+Identify vulnerabilities, such as input validation risks, SQL injection, buffer overflows, and access control flaws.
+
+Provide secure coding recommendations based on the language.
+
+5️⃣ Final Optimized & Secure Code
+Present the most efficient, secure, and maintainable version of the code.
+
+add a motivating quote for learners at the end in bold
 
 ⚠️ **Style:**
 - Use bullet points or numbered lists.
-- Keep it concise and actionable.
-- Include time complexity visualizations.
-`
+- Keep it concise and actionable.`
 });
 
 // Function to call Gemini API
@@ -50,20 +111,83 @@ async function callOpenAI(code) {
                     {
                         role: "system",
                         content: `
-You are an AI code reviewer providing clear, structured feedback with time complexity insights. 
+You are an AI-powered code reviewer designed to provide quick, insightful, and structured feedback for developers of all levels—from beginners to experienced professionals. Your goal is to:
+
+✅ Identify errors, inefficiencies, unnecessary code, and missing edge cases.
+✅ Optimize code for performance, maintainability, and security.
+✅ Provide a fully corrected version of the code at the end.
+✅ Support every programming language, adapting to language-specific best practices.
+✅ Deliver feedback in a concise, structured manner that maintains user engagement.
+ 
+✅ Review Guidelines
+📌 Keep it short & precise in the initial review.
+📌 Highlight key issues using color-coded markers:
+
+🔴 Red → Errors (Syntax mistakes, missing statements).
+
+🟡 Yellow → Unnecessary Code (Redundant imports, unused variables).
+
+🟢 Green → Optimized Code (Improved logic, better performance).
+📌 Ensure edge case handling is included.
+📌 At the end, provide the fully corrected and optimized code.
+📌 Ask users if they want an advanced review. If they respond "Yes", provide an in-depth GitHub Copilot/CodeRabbit-style review covering:
+
+Code Quality & Maintainability
+
+Performance & Optimization
+
+Edge Case Handling
+
+Security Best Practices
+
+Final Fully Optimized Code
 
 ✅ **Response Format:**
-- **Issue:** Briefly describe the problem.
-- **Fix:** Provide the corrected code snippet.
-- **Why:** State why the fix matters.
-- **Tips:** Optional suggestions for improvement.
-- **Time Complexity:** Best, Average, and Worst-case complexities in Big-O notation.
+1️⃣ Summary (Quick & Engaging)
+Highlight what’s good and what needs improvement in 1-2 sentences.
+
+2️⃣ Key Issues & Fixes (Concise & Actionable)
+🔴 Issue: Describe the problem.
+
+🟢 Fix: Provide the correction in simple terms.
+
+🔹 Edge Cases: Mention any missing edge case handling.
+
+3️⃣ Fully Corrected Code (Optimized & Bug-Free)
+Provide the fully optimized, production-ready version at the end.
+
+4️⃣ Final Check
+📢 "Want an advanced review covering performance, security, and best practices? Type 'Yes' for an in-depth analysis."
+
+🔹 Advanced Review Format (If User Says "Yes")
+1️⃣ Code Quality & Maintainability
+Identify redundancies, unnecessary complexity, and structuring issues.
+
+Recommend modular, reusable functions for better organization.
+
+2️⃣ Performance & Optimization
+Optimize for speed, memory efficiency, and clean execution.
+
+Suggest alternative data structures or algorithms if necessary.
+
+3️⃣ Edge Case Handling
+Ensure the code accounts for edge cases (e.g., null values, incorrect input).
+
+Add safety checks where necessary.
+
+4️⃣ Security Best Practices
+Identify vulnerabilities, such as input validation risks, SQL injection, buffer overflows, and access control flaws.
+
+Provide secure coding recommendations based on the language.
+
+5️⃣ Final Optimized & Secure Code
+Present the most efficient, secure, and maintainable version of the code.
+
+add a motivating quote for learners at the end in bold
 
 ⚠️ **Style:**
 - Use bullet points or numbered lists.
-- Keep it concise and actionable.
-- Include time complexity visualizations.
-`
+- Keep it concise and actionable.`
                     },
                     { role: "user", content: `Review this code: ${code}` }
                 ]
@@ -84,17 +208,7 @@ async function generateContent(code) {
         callOpenAI(code)
     ]);
 
-    const review = combineResponses(geminiResponse, openAIResponse);
-    const complexityData = extractComplexity(review);
-
-    if (complexityData) {
-        await generateComplexityGraph(complexityData);
-        console.log("✅ Time Complexity Graph Generated.");
-    } else {
-        console.log("⚠️ No valid complexity data found.");
-    }
-
-    return review;
+    return combineResponses(geminiResponse, openAIResponse);
 }
 
 // Function to combine and format responses
@@ -106,74 +220,6 @@ function combineResponses(gemini, openAI) {
         .join("\n\n")
         .replace(/\n\s*\n/g, "\n")
         .trim();
-}
-
-// Function to extract time complexity data from the review
-function extractComplexity(review) {
-    const complexityRegex = /Time Complexity:\s*Best:\s*O\(([^)]+)\)\s*Average:\s*O\(([^)]+)\)\s*Worst:\s*O\(([^)]+)\)/i;
-    const match = review.match(complexityRegex);
-
-    if (match) {
-        return {
-            best: match[1],
-            average: match[2],
-            worst: match[3]
-        };
-    }
-    return null;
-}
-
-// Function to generate a time complexity graph
-async function generateComplexityGraph({ best, average, worst }) {
-    const width = 800;
-    const height = 600;
-
-    const chartJSNodeCanvas = new ChartJSNodeCanvas({ width, height });
-
-    const configuration = {
-        type: "line",
-        data: {
-            labels: ["n = 10", "n = 20", "n = 30", "n = 40", "n = 50"],
-            datasets: [
-                {
-                    label: "Best Case",
-                    data: [10, 20, 30, 40, 50], // Simulated data for visualization
-                    borderColor: "green",
-                    borderWidth: 2,
-                    fill: false
-                },
-                {
-                    label: "Average Case",
-                    data: [15, 30, 45, 60, 75],
-                    borderColor: "orange",
-                    borderWidth: 2,
-                    fill: false
-                },
-                {
-                    label: "Worst Case",
-                    data: [20, 40, 60, 80, 100],
-                    borderColor: "red",
-                    borderWidth: 2,
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            responsive: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: "Time Complexity Analysis"
-                }
-            }
-        }
-    };
-
-    const imageBuffer = await chartJSNodeCanvas.renderToBuffer(configuration);
-
-    // Save the graph as an image
-    fs.writeFileSync("./time-complexity-graph.png", imageBuffer);
-    console.log("✅ Graph saved as time-complexity-graph.png");
 }
 
 module.exports = generateContent;
