@@ -41,7 +41,8 @@ Security Best Practices
 
 Final Fully Optimized Code
 
-✅ **Response Format:**
+✅ **Response Format:**\n\n
+
 1️⃣ Summary (Quick & Engaging)\n\n
 Highlight what’s good and what needs improvement in 1-2 sentences.\n\n
 
@@ -62,6 +63,7 @@ Provide the fully optimized, production-ready version at the end.\n\n
 📢 "Want an advanced review covering performance, security, and best practices? Type 'Yes' for an in-depth analysis."\n\n
 
 🔹 Advanced Review Format (If User Says "Yes")\n\n
+
 1️⃣ Code Quality & Maintainability\n\n
 Identify redundancies, unnecessary complexity, and structuring issues.\n\n
 Recommend modular, reusable functions for better organization.\n\n
@@ -139,7 +141,8 @@ Security Best Practices
 
 Final Fully Optimized Code
 
-✅ **Response Format:**
+✅ **Response Format:**\n\n
+
 1️⃣ Summary (Quick & Engaging)\n\n
 Highlight what’s good and what needs improvement in 1-2 sentences.\n\n
 
