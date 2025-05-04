@@ -1,8 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
-const { reviewWithOpenAI } = require('./services/openai')
-const { reviewWithGemini } = require('./services/gemini')
+const { reviewWithOpenAI } = require('./src/services/openai')
+const { reviewWithGemini } = require('./src/services/gemini')
 
 const app = express()
 app.use(cors())
