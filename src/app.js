@@ -1,14 +1,22 @@
-const express = require('express')
-const cors = require('cors')
+const express = require('express');
+
+const cors = require('cors');
+
+
+
+const connectDB = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
 require('dotenv').config()
-const { reviewWithOpenAI } = require('./src/services/openai')
-const { reviewWithGemini } = require('./src/services/gemini')
+const { reviewWithOpenAI } = require('./services/openai')
+const { reviewWithGemini } = require('./services/gemini')
 
 const app = express()
 app.use(cors())
+connectDB();
+dotenv.config();
 app.use(express.json())
 
-app.post('/get-review', async (req, res) => {
+app.post('/api/review', async (req, res) => {
   const { code, prompt } = req.body
 
   try {
@@ -29,5 +37,13 @@ ${openaiResponse.length > geminiResponse.length ? openaiResponse : geminiRespons
   }
 })
 
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`MCP server running on port ${PORT}`))
+
+
+
+app.get('/',(req,res)=>{
+    res.send('Hello World');
+});
+
+app.use("/api/auth", authRoutes);
+
+module.exports = app;
